@@ -11,5 +11,5 @@
 ```scala
 resolvers += Resolver.bintrayRepo("evolutiongaming", "maven")
 
-libraryDependencies += "com.evolutiongaming" %% "qlc-plus" % "0.0.1"
+libraryDependencies += "com.evolutiongaming" %% "qlc-plus" % "1.0.0"
 ```
