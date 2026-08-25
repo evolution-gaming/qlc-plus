@@ -44,11 +44,11 @@ class QlcPlusClient(uri: Uri, listener: ActorRef) extends Actor with Stash with 
         case Right(cmd) =>
           log.info(s"QLC+ client for $uri received command $cmd")
           listener ! cmd
-        case Left(err)  => log.warning(s"Parse failed with $err for input $str")
+        case Left(err) => log.warning(s"Parse failed with $err for input $str")
       }
 
     case msg: Out =>
-      log.info(s"QLC+ client for $uri received message ${msg.asText}")
+      log.info(s"QLC+ client for $uri received message ${ msg.asText }")
       outgoing ! TextMessage(msg.asText)
 
     case Status.Failure(t) =>
@@ -74,8 +74,8 @@ class QlcPlusClient(uri: Uri, listener: ActorRef) extends Actor with Stash with 
       val bufferSize = system.settings.config.getInt("evolutiongaming.qlcplus.client.bufferSize")
       val completionMatcher: PartialFunction[Any, CompletionStrategy] = {
         case Status.Success(s: CompletionStrategy) => s
-        case Status.Success(_)                     => CompletionStrategy.draining
-        case Status.Success                        => CompletionStrategy.draining
+        case Status.Success(_) => CompletionStrategy.draining
+        case Status.Success => CompletionStrategy.draining
       }
       val failureMatcher: PartialFunction[Any, Throwable] = {
         case Status.Failure(cause) =>
@@ -103,7 +103,7 @@ class QlcPlusClient(uri: Uri, listener: ActorRef) extends Actor with Stash with 
         log.info(s"Connected to $uri ($x)")
 
       case Success(x: InvalidUpgradeResponse) =>
-        log.error(s"Connection to $uri failed: ${x.cause}")
+        log.error(s"Connection to $uri failed: ${ x.cause }")
         self ! PoisonPill
 
       case Failure(t) =>
