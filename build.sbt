@@ -19,7 +19,7 @@ lazy val commonSettings = Seq(
       case _ => Nil
     }
   },
-  versionPolicyIntention := Compatibility.None,
+  versionPolicyIntention := Compatibility.BinaryCompatible,
 )
 
 val alias: Seq[sbt.Def.Setting[?]] =
