@@ -1,12 +1,11 @@
 package com.evolutiongaming.qlcplus
 
-import java.io.StringReader
-import java.util.Properties
-
 import com.evolutiongaming.util.Validation._
 
-import scala.collection.JavaConverters._
+import java.io.StringReader
+import java.util.Properties
 import scala.collection.mutable
+import scala.jdk.CollectionConverters._
 import scala.util.Random
 
 final case class QlcPlusFlow(scenarios: Vector[QlcPlusFlow.Scenario]) {
@@ -18,8 +17,8 @@ final case class QlcPlusFlow(scenarios: Vector[QlcPlusFlow.Scenario]) {
 }
 
 object QlcPlusFlow {
-  type Key     = String
-  type Widget  = String
+  type Key = String
+  type Widget = String
   type Widgets = List[Widget]
 
   object Widgets {

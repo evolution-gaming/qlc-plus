@@ -2,9 +2,10 @@ package com.evolutiongaming.qlcplus
 
 import com.evolutiongaming.qlcplus.QlcPlusFlow.Scenario
 import com.evolutiongaming.util.Validation._
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
-class QlcPlusFlowSpec extends FunSuite with Matchers {
+class QlcPlusFlowSpec extends AnyFunSuite with Matchers {
 
   test("load successfully") {
     val flow = QlcPlusFlow
@@ -72,11 +73,11 @@ class QlcPlusFlowSpec extends FunSuite with Matchers {
 
     flow.scenarios.toSet shouldBe Set(
       Scenario(
-        name    = "1",
+        name = "1",
         widgets = Map("foo" -> List("FOO", "BAR")),
       ),
       Scenario(
-        name    = "2",
+        name = "2",
         widgets = Map("qux" -> List("QUX")),
       ),
     )

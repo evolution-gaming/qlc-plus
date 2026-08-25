@@ -36,7 +36,7 @@ object QlcPlusMsg {
 
       def header = str match {
         case PrefixRegex(name, _, args) => (name, Option(args)).ok
-        case _                          => s"Unable to parse message: $str".ko
+        case _ => s"Unable to parse message: $str".ko
       }
 
       def num(str: String) = Try(Integer parseInt str) ?>> s"Can't parse: $str"
@@ -54,7 +54,7 @@ object QlcPlusMsg {
             def loop(ls: List[String], res: Map[String, String] = Map()): Map[String, String] = {
               ls match {
                 case a :: b :: rest => loop(rest, res + (a -> b))
-                case _              => res
+                case _ => res
               }
             }
             for {
@@ -70,9 +70,9 @@ object QlcPlusMsg {
       }
 
       for {
-        head         <- header
+        head <- header
         (name, args) = head
-        msg          <- msg(name, args)
+        msg <- msg(name, args)
       } yield msg
     }
 

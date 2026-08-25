@@ -5,11 +5,12 @@ import akka.http.scaladsl.model.Uri
 import akka.http.scaladsl.model.ws._
 import akka.testkit.{TestActorRef, TestProbe}
 import com.evolutiongaming.test.ActorSpec
-import org.scalatest.{Matchers, WordSpec}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
 import scala.concurrent.duration._
 
-class QlcPlusClientSpec extends WordSpec with ActorSpec with Matchers {
+class QlcPlusClientSpec extends AnyWordSpec with ActorSpec with Matchers {
   import QlcPlusMsg._
 
   "QLC+ client" should {
